@@ -1,94 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miftahul Zannat Atiha | Portfolio</title>
-
-
-    <!-- Favicon -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miftahul Zannat Atiha | Portfolio</title>
     <link rel="icon" href="assets/logo.png" type="image/png">
-
-
-
-
-    <!-- Link CSS file -->
     <link rel="stylesheet" href="style.css" />
-     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-
-    <!-- NAVBAR -->
-    <nav>
-     <div class="logo">
-        <a href="index.html">
-        <!-- Logo at the top of your page -->
-       <img src="assets/logo.png" alt="My Logo" id="logo">
-      </a>
-    </div>
-
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-
-
-
- <div class="social-icons">
-     <a href="https://linkedin.com/in/yourlinkedin" target="_blank">
-        <i class="fab fa-linkedin"></i>
+<nav>
+  <div class="logo">
+    <a href="index.html">
+    <img src="assets/logo.png" alt="My Logo" id="logo">
     </a>
+  </div>
+  
+<ul>
+  <li><a href="#about">About</a></li>
+  <li><a href="#portfolio">Portfolio</a></li>
+  <li><a href="#blog">Blog</a></li>
+  <li><a href="#resume.pdf" download>Resume</a></li>
+</ul>
+
+
+
+
+<div class="social-icons">
+<a href="https://linkedin.com/in/yourlinkedin" target="_blank">
+    <i class="fab fa-linkedin"></i>
+  </a>
 <a href="https://x.com/yourusername" target="_blank">
-    <i class="fab fa-x-twitter"></i> <!-- Font Awesome icon for X/Twitter -->
+    <i class="fab fa-x-twitter"></i>
 </a>
-
-    <a href="https://instagram.com/yourusername" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-
-    
-    <a href="https://facebook.com/yourfacebook" target="_blank">
-        <i class="fab fa-facebook"></i>
-    </a>
-
-    <a href="https://github.com/AtihaOfficial" target="_blank">
-        <i class="fab fa-github"></i>
-    </a>
-
-    <a href="https://codeforces.com/profile/yourhandle" target="_blank">
-        <i class="fa-solid fa-code"></i>
-    </a>
-
- </div>
+<a href="https://instagram.com/yourusername" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>  
+<a href="https://facebook.com/yourfacebook" target="_blank">
+    <i class="fab fa-facebook"></i>
+</a>
+<a href="https://github.com/AtihaOfficial" target="_blank">
+    <i class="fab fa-github"></i>
+</a>
+<a href="https://codeforces.com/profile/yourhandle" target="_blank">
+    <i class="fa-solid fa-code"></i>
+</a>
+</div>
 
 
 
- <div class="menu-dots">
-    <i class="fas fa-ellipsis-v"></i>
-    <div class="dropdown">
-        <a href="resume.pdf" download>Resume</a>
-        <a href="#education">Education</a>
-        <a href="#interests">Interests</a>
-        <a href="#activities">Activities</a>
-    </div>
+<div class="menu-dots" id="menuDots">
+  <i class="fas fa-ellipsis-v"></i>
+  <div class="dropdown" id="dropdownMenu">
+    <a href="#education">Education</a>
+    <a href="#activities">Activities</a>
+    <a href="#interests">Interests</a>
+  </div>
 </div>
 
 
 
        
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>Miftahul Zannat Atiha</h1>
-        <h3><strong>Learner | Coder | Explorer</strong></h3>
+</nav>
+<section class="hero">
+    <h1>Miftahul Zannat Atiha</h1>
+    <h3><strong>Learner | Coder | Explorer</strong></h3>
         <a href="#contact" class="btn">Get In Touch</a>
-    </section>
+</section>
+
+
+ 
+<section id="about" class="about-section">
+  <div class="about-container">
+  <div class="about-text">
+      <h1>About</h1>
+      <p>Hey! This is Miftahul Zannat Atiha, a passionate coder and lifelong learner exploring every corner of Computer Science. When I'm not building projects or tackling coding challenges, you'll find me debating, capturing moments through photography, or diving into creative hobbies.</p>
+  </div>
+  <div class="about-image">
+  </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="portfolio" class="portfolio-section">
+ <h1>Portfolio</h1>
+ <p>Checkout some of my latest projects.</p>
+ <div class="portfolio-grid">
+ <div class="project-card">
+       <img src="assets/Anabelle.jpg" alt="Movie Ticket Booking">
+       <h3>Movie Ticket Booking System (Qt)</h3>
+       <p>A GUI-based ticket booking application built with Qt framework.</p>
+       <a href="#" class="btn-project">View Project</a>
+ </div>
+ <div class="project-card">
+       <img src="assets/Bank.jpg" alt="Bank Management">
+       <h3>Bank Management System</h3>
+       <p>A console-based C++ project to manage customer banking operations.</p>
+       <a href="#" class="btn-project">View Project</a>
+ </div>    
+ <div class="project-card">
+       <img src="assets/Pet.jpg" alt="Pet Management">
+       <h3>Pet Management System</h3>
+       <p>A Console-based system to track pets, feeding schedules, and vaccinations.</p>
+       <a href="#" class="btn-project">View Project</a>
+ </div>
+ </div>
+</section>
+
+
+
+<section id="blog" class="blog-section">
+ <h2>Blog</h2>
+ <p>Learning, growing, and sharing along the way.</p>
+ <div class="blog-grid">
+ <div class="blog-card">
+   <img src="assets/debate.jpg" alt="Debate Blog">
+     <h4><a href="blogs/debate_presence_of_mind.html" target="_blank">How Debate Sharpens Your Presence of Mind</a></h4>
+     <p>Exploring how debating improves critical thinking, presence of mind, and communication skills:lessons I apply beyond competitions.</p>
+ </div>
+
+  <div class="blog-card">
+    <img src="assets/book2.jpeg" alt="Book Blog">
+    <h4><a href="blogs/choosing_books_over_screens.html" target="_blank">Choosing Books Over Screens: A Leisure Habit Worth Keeping</a></h4>
+      <p>Why reading books as a leisure habit can transform can help in personal growth in a screen dominated world.</p>
+  </div>
+  </div>
+</section>
+
+
+
+
+<section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <p>Curious about something I shared? Feel free to reach out.</p>
+    <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="formMsg"></p>
+    </form>
+</section>
+
+
+
+
+<section id="education" class="education-section">
+<h2>Education</h2>
+<div class="education-card">
+ <h3>BSc in Computer Science and Engineering</h3>
+ <p>Internation Islamic University Chittagong, 2024 - Present</p>
+</div>
+<div class="education-card">
+  <h3>Higher Secondary School Certificate (HSC)</h3>
+  <p>Chittagong GGovernment Women's College, 2020- 2021</p>
+</div>
+<div class="education-card">
+  <h3>Secondary School Certificate (SSC)</h3>
+  <p>Silver Bells'Girls High School, 2015 - 2019</p>
+  </div>
+</section>
+
+
+
+
+
+<section id="activities" class="activities-section">
+<h2>Activities</h2>
+<div class="activities-grid">
+  <div class="activity-card">
+  <h3>Next-Gen Hackathon:Idea Submission Round</h3>
+  <span class="date">2025</span>
+  </div>
+
+  <div class="activity-card">
+  <h3>Iner-University Programming Contest</h3>
+  <span class="date">2025</span>
+  </div>
+
+  <div class="activity-card">
+  <h3>Inter-University Debating Contest</h3>
+  <span class="date">2025</span>
+  </div>
+
+  <div class="activity-card">
+  <h3>Inter-University Debating Contes</h3>
+  <span class="date">2025</span>
+  </div>
+
+  <div class="activity-card">
+  <h3>Ottoman-Bot Robotics Workshop</h3>
+  <span class="date">2025</span>
+  </div>
+  <div class="activity-card">
+  <h3>ICT-Olympiad: Quater Final</h3>
+  <span class="date">2025</span>
+  </div>
+  <div class="activity-card">
+  <h3>Basics and Insights of Photography Workshop</h3>
+  <span class="date">2025</span>
+  </div>
+  </div>
+</section>
+
+
+
+<section id="interests" class="interests-section">
+<h2>Interests</h2>
+<div class="interests-grid">
+  <a href="https://example.com/photography" target="_blank" class="interest-card">
+      <img src="assets/Photography.jpeg" alt="Photography">
+<h4>Photography</h4>
+  </a>
+  <a href="https://example.com/gardening" target="_blank" class="interest-card">
+      <img src="assets/Gardening.jpeg" alt="Gardening">
+<h4>Gardening</h4>
+  </a>
+  <a href="https://example.com/travel" target="_blank" class="interest-card">
+      <img src="assets/Travel.jpeg" alt="Travel">
+<h4>Travelling</h4>
+  </a>
+  <a href="https://example.com/books" target="_blank" class="interest-card">
+      <img src="assets/Book.jpeg" alt="Reading Books">
+<h4>Reading Books</h4>
+  </a>
+</div>
+</section>
+
+
+
+<script>
+    const menuDots = document.getElementById("menuDots");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    menuDots.addEventListener("click", function () {
+        dropdown.classList.toggle("show");
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!menuDots.contains(e.target)) {
+            dropdown.classList.remove("show");
+        }
+    });
+</script>
+<script src="contactform.js"></script>
 
 </body>
 </html>
