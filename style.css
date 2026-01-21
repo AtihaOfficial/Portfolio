@@ -296,6 +296,23 @@ nav ul li a:hover {
      margin-top: 10px;
     line-height:1.7;
 }
+.blog-page {
+  background:#0f172a;
+  color:#e5e7eb;
+  font-family:Arial,sans-serif;
+}
+
+.blog-container {
+  max-width:800px;
+  margin:80px auto;
+  padding:20px;
+  line-height:1.7;
+}
+
+.blog-meta {
+  color:#94a3b8;
+  margin-bottom:20px;
+}
 
 
 .contact-section {
