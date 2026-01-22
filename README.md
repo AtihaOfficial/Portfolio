@@ -81,7 +81,7 @@ https://www.figma.com/proto/Mindm3DXVmPS9QT9uDccMe/Portfolio?node-id=0-1&t=rssZ0
 
 1. Clone the repository given below:
 
-git clone https://github.com/AtihaOfficial/your-portfolio.git
+git clone https://github.com/AtihaOfficial/Portfolio.git
 
 2. Open index.html in browser 
 
