@@ -4,258 +4,330 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Miftahul Zannat Atiha | Portfolio</title>
-    <link rel="icon" href="assets/logo.png" type="image/png">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Tailwind (CDN). For production, switch to the CLI build. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Arial', 'Helvetica', 'sans-serif'] },
+          colors: {
+            brand: '#C62828',
+            'brand-dark': '#B71C1C',
+            accent: '#ff5252',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Typewriter cursor */
+    @keyframes blink { 50% { opacity: 0; } }
+    .cursor { animation: blink 1s step-end infinite; }
+
+    /* Blog heading underline: drawn when scrolled into view */
+    .sketch { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .sketch-in .sketch { animation: draw 1.2s ease-out forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    /* Blog card outline: drawn on hover */
+    .card-sketch {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 0.9s ease;
+    }
+    .group:hover .card-sketch { stroke-dashoffset: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; }
+      .sketch { stroke-dashoffset: 0; }
+      .sketch-in .sketch { animation: none; }
+      .card-sketch { transition: none; }
+    }
+  </style>
 </head>
 
-<body>
-<nav>
-  <div class="logo">
+<body class="font-sans text-white bg-[#161616]">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 z-50 w-full flex justify-between items-center gap-4 px-5 py-5 md:px-[60px] bg-black/70">
+  <div>
     <a href="index.html">
-    <img src="assets/logo.png" alt="My Logo" id="logo">
+      <img src="assets/logo.png" alt="My Logo" id="logo" class="w-10 h-auto block">
     </a>
   </div>
-  
-<ul>
-  <li><a href="#about">About</a></li>
-  <li><a href="#portfolio">Portfolio</a></li>
-  <li><a href="#blog">Blog</a></li>
-  <li><a href="resume.pdf" download>Resume</a></li>
-</ul>
 
+  <ul class="flex gap-4 md:gap-[30px] list-none">
+    <li><a href="#about" class="no-underline text-white text-base md:text-lg transition duration-300 hover:text-accent">About</a></li>
+    <li><a href="#portfolio" class="no-underline text-white text-base md:text-lg transition duration-300 hover:text-accent">Portfolio</a></li>
+    <li><a href="#blog" class="no-underline text-white text-base md:text-lg transition duration-300 hover:text-accent">Blog</a></li>
+    <li><a href="resume.pdf" download class="no-underline text-white text-base md:text-lg transition duration-300 hover:text-accent">Resume</a></li>
+  </ul>
 
-
-
-<div class="social-icons">
-<a href="https://linkedin.com/in/yourlinkedin" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-<a href="https://x.com/yourusername" target="_blank">
-    <i class="fab fa-x-twitter"></i>
-</a>
-<a href="https://instagram.com/yourusername" target="_blank">
-    <i class="fab fa-instagram"></i>
-</a>  
-<a href="https://facebook.com/yourfacebook" target="_blank">
-    <i class="fab fa-facebook"></i>
-</a>
-<a href="https://github.com/AtihaOfficial" target="_blank">
-    <i class="fab fa-github"></i>
-</a>
-<a href="https://codeforces.com/profile/yourhandle" target="_blank">
-    <i class="fa-solid fa-code"></i>
-</a>
-</div>
-
-
-
-<div class="menu-dots" id="menuDots">
-  <i class="fas fa-ellipsis-v"></i>
-  <div class="dropdown" id="dropdownMenu">
-    <a href="#education">Education</a>
-    <a href="#activities">Activities</a>
-    <a href="#interests">Interests</a>
+  <div class="hidden md:flex gap-5">
+    <a href="https://linkedin.com/in/yourlinkedin" target="_blank" class="text-white text-xl no-underline transition duration-300 hover:text-accent"><i class="fab fa-linkedin"></i></a>
+    <a href="https://x.com/yourusername" target="_blank" class="text-white text-xl no-underline transition duration-300 hover:text-accent"><i class="fab fa-x"></i></a>
+    <a href="https://instagram.com/yourusername" target="_blank" class="text-white text-xl no-underline transition duration-300 hover:text-accent"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/yourfacebook" target="_blank" class="text-white text-xl no-underline transition duration-300 hover:text-accent"><i class="fab fa-facebook"></i></a>
+    <a href="https://github.com/AtihaOfficial" target="_blank" class="text-white text-xl no-underline transition duration-300 hover:text-accent"><i class="fab fa-github"></i></a>
+    <a href="https://codeforces.com/profile/yourhandle" target="_blank" class="text-white text-xl no-underline transition duration-300 hover:text-accent"><i class="fa-solid fa-code"></i></a>
   </div>
-</div>
 
-
-
-       
+  <div class="relative cursor-pointer text-[22px] text-white md:ml-5" id="menuDots">
+    <i class="fas fa-ellipsis-v hover:text-accent"></i>
+    <div class="hidden absolute top-[30px] right-0 bg-black/85 p-2.5 rounded-lg" id="dropdownMenu">
+      <a href="#education" class="block text-base text-white no-underline px-3 py-2 rounded-[5px] hover:bg-white/10 hover:text-accent">Education</a>
+      <a href="#activities" class="block text-base text-white no-underline px-3 py-2 rounded-[5px] hover:bg-white/10 hover:text-accent">Activities</a>
+      <a href="#interests" class="block text-base text-white no-underline px-3 py-2 rounded-[5px] hover:bg-white/10 hover:text-accent">Interests</a>
+    </div>
+  </div>
 </nav>
-<section class="hero">
-    <h1>Miftahul Zannat Atiha</h1>
-    <h3><strong>Learner | Coder | Explorer</strong></h3>
-        <a href="#contact" class="btn">Get In Touch</a>
+
+<!-- HERO -->
+<section class="w-full h-screen flex flex-col justify-center items-center text-center px-5 text-white bg-[url('assets/bg.jpeg')] bg-cover bg-center bg-no-repeat">
+  <h1 class="text-4xl md:text-[55px] font-bold">Miftahul Zannat Atiha</h1>
+  <h3 class="text-2xl mb-[30px] font-bold min-h-[2rem]">
+    <span id="typed">Learner | Coder | Explorer</span><span class="cursor text-accent">|</span>
+  </h3>
+  <a href="#contact" class="bg-[rgba(200,0,0,0.6)] hover:bg-[rgba(255,0,0,0.8)] px-[30px] py-3 text-xl rounded-[30px] text-white no-underline">Get In Touch</a>
 </section>
 
-
- 
-<section id="about" class="about-section">
-  <div class="about-container">
-  <div class="about-text">
-      <h1>About</h1>
-      <p>Hey! This is Miftahul Zannat Atiha, a passionate coder and lifelong learner exploring every corner of Computer Science. When I'm not building projects or tackling coding challenges, you'll find me debating, capturing moments through photography, or diving into creative hobbies.</p>
-  </div>
-  <div class="about-image">
-  </div>
-  </div>
-</section>
-
-
-
-
-
-<section id="portfolio" class="portfolio-section">
- <h1>Portfolio</h1>
- <p>Checkout some of my latest projects.</p>
- <div class="portfolio-grid">
- <div class="project-card">
-       <img src="assets/Anabelle.jpg" alt="Movie Ticket Booking">
-       <h3>Movie Ticket Booking System (Qt)</h3>
-       <p>A GUI-based ticket booking application built with Qt framework.</p>
-       <a href="https://github.com/AtihaOfficial/Movie-Ticket-Booking-System" 
-   class="btn-project" target="_blank">
-   View on GitHub
-</a>
-</div>
-
- <div class="project-card">
-       <img src="assets/Bank.jpg" alt="Bank Management">
-       <h3>Bank Management System</h3>
-       <p>A console-based C++ project to manage customer banking operations.</p>
-     <a href="https://github.com/AtihaOfficial/Bank-Management-System" 
-   class="btn-project" target="_blank">
-   View on GitHub
-</a>
-</div>
-   
- <div class="project-card">
-       <img src="assets/Pet.jpg" alt="Pet Management">
-       <h3>Pet Management System</h3>
-       <p>A Console-based system to track pets, feeding schedules, and vaccinations.</p>
-       <a href="https://github.com/AtihaOfficial/Pet-Management-System" 
-   class="btn-project" target="_blank">
-   View on GitHub
-</a>
- </div>
-</section>
-
-
-
-<section id="blog" class="blog-section">
- <h2>Blog</h2>
- <p>Learning, growing, and sharing along the way.</p>
- <div class="blog-grid">
- <div class="blog-card">
-   <img src="assets/debate.jpg" alt="Debate Blog">
-     <h4><a href="blogs/debate_presence_of_mind.html" target="_blank">How Debate Sharpens Your Presence of Mind</a></h4>
-     <p>Exploring how debating improves critical thinking, presence of mind, and communication skills:lessons I apply beyond competitions.</p>
- </div>
-
-  <div class="blog-card">
-    <img src="assets/book2.jpeg" alt="Book Blog">
-    <h4><a href="blogs/choosing_books_over_screens.html" target="_blank">Choosing Books Over Screens: A Leisure Habit Worth Keeping</a></h4>
-      <p>Why reading books as a leisure habit can transform can help in personal growth in a screen dominated world.</p>
-  </div>
+<!-- ABOUT -->
+<section id="about" class="relative text-white px-5 py-[150px] md:px-20 bg-[url('assets/about.jpeg')] bg-cover bg-center bg-no-repeat">
+  <div class="relative z-[1] flex flex-wrap justify-between items-center gap-10">
+    <div class="flex-1 max-w-[520px]">
+      <h1 class="text-4xl mb-[25px]">About</h1>
+      <p class="text-lg text-[#fbf7f7] leading-[1.8]">Hey! This is Miftahul Zannat Atiha, a passionate coder and lifelong learner exploring every corner of Computer Science. When I'm not building projects or tackling coding challenges, you'll find me debating, capturing moments through photography, or diving into creative hobbies.</p>
+    </div>
+    <div>
+    </div>
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section id="portfolio" class="bg-[#161616] text-white text-center px-5 py-[100px] md:px-[60px]">
+  <h1 class="mb-5">Portfolio</h1>
+  <p class="mb-[50px]">Checkout some of my latest projects.</p>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[30px]">
 
+    <div class="bg-[#1E1E1E] border border-[#2A2A2A] rounded-[10px] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <img src="assets/Anabelle.jpg" alt="Movie Ticket Booking" class="w-full rounded-[10px] mb-[15px]">
+      <h3 class="text-[22px] text-white mb-2.5">Movie Ticket Booking System (Qt)</h3>
+      <p class="text-[#B3B3B3] mb-[15px]">A GUI-based ticket booking application built with Qt framework.</p>
+      <a href="https://github.com/AtihaOfficial/Movie-Ticket-Booking-System" target="_blank"
+         class="inline-block px-5 py-2.5 bg-brand hover:bg-brand-dark text-white no-underline rounded-[30px] transition-colors duration-300">View on GitHub</a>
+    </div>
 
+    <div class="bg-[#1E1E1E] border border-[#2A2A2A] rounded-[10px] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <img src="assets/Bank.jpg" alt="Bank Management" class="w-full rounded-[10px] mb-[15px]">
+      <h3 class="text-[22px] text-white mb-2.5">Bank Management System</h3>
+      <p class="text-[#B3B3B3] mb-[15px]">A console-based C++ project to manage customer banking operations.</p>
+      <a href="https://github.com/AtihaOfficial/Bank-Management-System" target="_blank"
+         class="inline-block px-5 py-2.5 bg-brand hover:bg-brand-dark text-white no-underline rounded-[30px] transition-colors duration-300">View on GitHub</a>
+    </div>
 
-<section id="contact" class="contact-section">
-    <h2>Contact Me</h2>
-    <p>Curious about something I shared? Feel free to reach out.</p>
-    <form class="contact-form" id="contactForm">
-    <input type="text" id="name" name="name" placeholder="Your Name" required>
-    <input type="email" id="email" name="email" placeholder="Your Email" required>
-    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
+    <div class="bg-[#1E1E1E] border border-[#2A2A2A] rounded-[10px] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <img src="assets/Pet.jpg" alt="Pet Management" class="w-full rounded-[10px] mb-[15px]">
+      <h3 class="text-[22px] text-white mb-2.5">Pet Management System</h3>
+      <p class="text-[#B3B3B3] mb-[15px]">A Console-based system to track pets, feeding schedules, and vaccinations.</p>
+      <a href="https://github.com/AtihaOfficial/Pet-Management-System" target="_blank"
+         class="inline-block px-5 py-2.5 bg-brand hover:bg-brand-dark text-white no-underline rounded-[30px] transition-colors duration-300">View on GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="bg-[#0F0F0F] text-white text-center px-5 py-[100px] md:px-[60px]">
+  <h2 id="blogTitle" class="inline-block text-4xl mb-5">
+    Blog
+    <svg viewBox="0 0 200 12" class="block w-full h-3 mt-1" fill="none">
+      <path class="sketch" pathLength="1"
+            d="M2 8 C 30 2, 60 12, 95 6 S 160 3, 198 7"
+            stroke="#ff5252" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </h2>
+  <p class="mb-[30px]">Learning, growing, and sharing along the way.</p>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[30px]">
+
+    <div class="relative group bg-[#1E1E1E] border border-[#2A2A2A] rounded-[10px] p-[30px] text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible" fill="none">
+        <rect x="0" y="0" width="100%" height="100%" rx="10" pathLength="1"
+              class="card-sketch" stroke="#ff5252" stroke-width="2"/>
+      </svg>
+      <img src="assets/debate.jpg" alt="Debate Blog" class="w-full rounded-[10px] mb-5">
+      <h4 class="text-[22px] text-brand mb-[15px]">
+        <a href="blogs/debate_presence_of_mind.html" target="_blank" class="text-brand no-underline hover:text-accent">How Debate Sharpens Your Presence of Mind</a>
+      </h4>
+      <p class="text-[#B3B3B3] text-base mt-2.5 leading-[1.7]">Exploring how debating improves critical thinking, presence of mind, and communication skills:lessons I apply beyond competitions.</p>
+    </div>
+
+    <div class="relative group bg-[#1E1E1E] border border-[#2A2A2A] rounded-[10px] p-[30px] text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible" fill="none">
+        <rect x="0" y="0" width="100%" height="100%" rx="10" pathLength="1"
+              class="card-sketch" stroke="#ff5252" stroke-width="2"/>
+      </svg>
+      <img src="assets/book2.jpeg" alt="Book Blog" class="w-full rounded-[10px] mb-5">
+      <h4 class="text-[22px] text-brand mb-[15px]">
+        <a href="blogs/choosing_books_over_screens.html" target="_blank" class="text-brand no-underline hover:text-accent">Choosing Books Over Screens: A Leisure Habit Worth Keeping</a>
+      </h4>
+      <p class="text-[#B3B3B3] text-base mt-2.5 leading-[1.7]">Why reading books as a leisure habit can transform can help in personal growth in a screen dominated world.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-[#161616] text-white text-center px-5 py-[100px] md:px-[60px]">
+  <h2 class="text-4xl mb-5">Contact Me</h2>
+  <p class="mb-10">Curious about something I shared? Feel free to reach out.</p>
+  <form id="contactForm" class="max-w-[600px] mx-auto flex flex-col gap-5">
+    <input type="text" id="name" name="name" placeholder="Your Name" required
+           class="p-[15px] rounded-lg border border-[#2A2A2A] bg-[#2d2c2c] text-white placeholder:text-[#B3B3B3]">
+    <input type="email" id="email" name="email" placeholder="Your Email" required
+           class="p-[15px] rounded-lg border border-[#2A2A2A] bg-[#2d2c2c] text-white placeholder:text-[#B3B3B3]">
+    <textarea id="message" name="message" rows="5" placeholder="Your Message" required
+              class="p-[15px] rounded-lg border border-[#2A2A2A] bg-[#2d2c2c] text-white placeholder:text-[#B3B3B3]"></textarea>
+    <button type="submit" class="p-[15px] rounded-[30px] border-none bg-brand hover:bg-brand-dark text-white text-lg cursor-pointer">Send Message</button>
     <p id="formMsg"></p>
-</form>
+  </form>
 </section>
 
+<!-- EDUCATION -->
+<section id="education" class="bg-[#242323] text-white text-center px-5 py-[100px] md:px-[60px]">
+  <h2 class="text-4xl mb-[50px]">Education</h2>
 
-
-
-<section id="education" class="education-section">
-<h2>Education</h2>
-<div class="education-card">
- <h3>BSc in Computer Science and Engineering</h3>
- <p>Internation Islamic University Chittagong, 2024 - Present</p>
-</div>
-<div class="education-card">
-  <h3>Higher Secondary School Certificate (HSC)</h3>
-  <p>Chittagong GGovernment Women's College, 2020- 2021</p>
-</div>
-<div class="education-card">
-  <h3>Secondary School Certificate (SSC)</h3>
-  <p>Silver Bells'Girls High School, 2015 - 2019</p>
+  <div class="bg-[#0F0F0F] border border-[#2A2A2A] rounded-[10px] p-5 my-5 mx-auto max-w-[600px]">
+    <h3 class="text-brand text-[22px] mb-2.5">BSc in Computer Science and Engineering</h3>
+    <p class="text-[#B3B3B3] text-lg">Internation Islamic University Chittagong, 2024 - Present</p>
   </div>
-</section>
-
-
-
-
-
-<section id="activities" class="activities-section">
-<h2>Activities</h2>
-<div class="activities-grid">
-  <div class="activity-card">
-  <h3>Next-Gen Hackathon:Idea Submission Round</h3>
-  <span class="date">2025</span>
+  <div class="bg-[#0F0F0F] border border-[#2A2A2A] rounded-[10px] p-5 my-5 mx-auto max-w-[600px]">
+    <h3 class="text-brand text-[22px] mb-2.5">Higher Secondary School Certificate (HSC)</h3>
+    <p class="text-[#B3B3B3] text-lg">Chittagong GGovernment Women's College, 2020- 2021</p>
   </div>
-
- <div class="activity-card">
-  <h3>Microsoft Certified AI workshop</h3>
-  <span class="date">2025</span>
-  </div>
-
-  <div class="activity-card">
-  <h3>Inter-University Debating Contest</h3>
-  <span class="date">2025</span>
-  </div>
-
-  <div class="activity-card">
-  <h3>Intra-University Debating Contest</h3>
-  <span class="date">2025</span>
-  </div>
-
-  <div class="activity-card">
-  <h3>Ottoman-Bot Robotics Workshop</h3>
-  <span class="date">2025</span>
-  </div>
-  <div class="activity-card">
-  <h3>ICT-Olympiad: Quater Final</h3>
-  <span class="date">2025</span>
-  </div>
-  <div class="activity-card">
-  <h3>Basics and Insights of Photography Workshop</h3>
-  <span class="date">2025</span>
-  </div>
+  <div class="bg-[#0F0F0F] border border-[#2A2A2A] rounded-[10px] p-5 my-5 mx-auto max-w-[600px]">
+    <h3 class="text-brand text-[22px] mb-2.5">Secondary School Certificate (SSC)</h3>
+    <p class="text-[#B3B3B3] text-lg">Silver Bells'Girls High School, 2015 - 2019</p>
   </div>
 </section>
 
+<!-- ACTIVITIES -->
+<section id="activities" class="bg-[#0F0F0F] text-white text-center px-5 py-[100px] md:px-[60px]">
+  <h2 class="text-4xl mb-[50px]">Activities</h2>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[30px]">
 
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">Next-Gen Hackathon:Idea Submission Round</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">Microsoft Certified AI workshop</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">Inter-University Debating Contest</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">Intra-University Debating Contest</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">Ottoman-Bot Robotics Workshop</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">ICT-Olympiad: Quater Final</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
+    <div class="bg-[#1E1E1E] rounded-[10px] border border-[#2A2A2A] p-5 text-left transition-transform duration-300 hover:-translate-y-[5px]">
+      <h3 class="text-[22px] text-white mb-2.5">Basics and Insights of Photography Workshop</h3>
+      <span class="text-brand font-bold">2025</span>
+    </div>
 
-<section id="interests" class="interests-section">
-<h2>Interests</h2>
-<div class="interests-grid">
-  <a href="https://example.com/photography" target="_blank" class="interest-card">
-      <img src="assets/Photography.jpeg" alt="Photography">
-<h4>Photography</h4>
-  </a>
-  <a href="https://example.com/gardening" target="_blank" class="interest-card">
-      <img src="assets/Gardening.jpg" alt="Gardening">
-<h4>Gardening</h4>
-  </a>
-  <a href="https://example.com/travel" target="_blank" class="interest-card">
-      <img src="assets/Travel.jpg" alt="Travel">
-<h4>Travelling</h4>
-  </a>
-  <a href="https://example.com/books" target="_blank" class="interest-card">
-      <img src="assets/Book.jpeg" alt="Reading Books">
-<h4>Reading Books</h4>
-  </a>
-</div>
+  </div>
 </section>
 
+<!-- INTERESTS -->
+<section id="interests" class="bg-[#161616] text-center px-5 py-[60px]">
+  <h2 class="text-4xl mb-10 text-white font-bold">Interests</h2>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-[30px] justify-items-center">
 
+    <a href="https://example.com/photography" target="_blank"
+       class="group flex flex-col items-center no-underline w-[180px] p-[25px] rounded-[15px] bg-gradient-to-br from-[#1F1F2E] to-[#2C2C44] shadow-[0_6px_20px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-2.5 hover:shadow-[0_12px_25px_rgba(0,0,0,0.5)] hover:from-accent hover:to-brand">
+      <img src="assets/Photography.jpeg" alt="Photography" class="w-[150px] h-[150px] mb-[15px]">
+      <h4 class="text-white text-lg">Photography</h4>
+    </a>
+    <a href="https://example.com/gardening" target="_blank"
+       class="group flex flex-col items-center no-underline w-[180px] p-[25px] rounded-[15px] bg-gradient-to-br from-[#1F1F2E] to-[#2C2C44] shadow-[0_6px_20px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-2.5 hover:shadow-[0_12px_25px_rgba(0,0,0,0.5)] hover:from-accent hover:to-brand">
+      <img src="assets/Gardening.jpg" alt="Gardening" class="w-[150px] h-[150px] mb-[15px]">
+      <h4 class="text-white text-lg">Gardening</h4>
+    </a>
+    <a href="https://example.com/travel" target="_blank"
+       class="group flex flex-col items-center no-underline w-[180px] p-[25px] rounded-[15px] bg-gradient-to-br from-[#1F1F2E] to-[#2C2C44] shadow-[0_6px_20px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-2.5 hover:shadow-[0_12px_25px_rgba(0,0,0,0.5)] hover:from-accent hover:to-brand">
+      <img src="assets/Travel.jpg" alt="Travel" class="w-[150px] h-[150px] mb-[15px]">
+      <h4 class="text-white text-lg">Travelling</h4>
+    </a>
+    <a href="https://example.com/books" target="_blank"
+       class="group flex flex-col items-center no-underline w-[180px] p-[25px] rounded-[15px] bg-gradient-to-br from-[#1F1F2E] to-[#2C2C44] shadow-[0_6px_20px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-2.5 hover:shadow-[0_12px_25px_rgba(0,0,0,0.5)] hover:from-accent hover:to-brand">
+      <img src="assets/Book.jpeg" alt="Reading Books" class="w-[150px] h-[150px] mb-[15px]">
+      <h4 class="text-white text-lg">Reading Books</h4>
+    </a>
+
+  </div>
+</section>
 
 <script>
-    const menuDots = document.getElementById("menuDots");
-    const dropdown = document.getElementById("dropdownMenu");
+  /* ---------- Dropdown menu ---------- */
+  const menuDots = document.getElementById("menuDots");
+  const dropdown = document.getElementById("dropdownMenu");
 
-    menuDots.addEventListener("click", function () {
-        dropdown.classList.toggle("show");
-    });
+  menuDots.addEventListener("click", function () {
+    dropdown.classList.toggle("hidden");
+  });
 
-    document.addEventListener("click", function (e) {
-        if (!menuDots.contains(e.target)) {
-            dropdown.classList.remove("show");
+  document.addEventListener("click", function (e) {
+    if (!menuDots.contains(e.target)) {
+      dropdown.classList.add("hidden");
+    }
+  });
+
+  /* ---------- Hero typewriter ---------- */
+  (function () {
+    const el = document.getElementById("typed");
+    const text = "Learner | Coder | Explorer";
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    let i = 0;
+    el.textContent = "";
+
+    function type() {
+      el.textContent = text.slice(0, i);
+      if (i < text.length) {
+        i++;
+        setTimeout(type, 90);   // typing speed in ms (lower = faster)
+      }
+    }
+    setTimeout(type, 500);      // short pause before typing starts
+  })();
+
+  /* ---------- Blog underline: draw when scrolled into view ---------- */
+  (function () {
+    const title = document.getElementById("blogTitle");
+    const observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("sketch-in");
+          obs.unobserve(entry.target);   // play once
         }
-    });
+      });
+    }, { threshold: 0.6 });
+    observer.observe(title);
+  })();
 </script>
 <script src="contactform.js"></script>
 
